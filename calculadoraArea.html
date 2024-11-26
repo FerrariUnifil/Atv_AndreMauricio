@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Áreas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .resultado {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cálculo de Áreas</h1>
+        
+        <!-- Área do Retângulo -->
+        <div class="form-group">
+            <label for="retBase">Base do Retângulo:</label>
+            <input type="number" id="retBase" step="0.01">
+        </div>
+        <div class="form-group">
+            <label for="retAltura">Altura do Retângulo:</label>
+            <input type="number" id="retAltura" step="0.01">
+        </div>
+        <button class="btn" onclick="areaRetangulo()">Calcular Área do Retângulo</button>
+        <div id="retResultado" class="resultado"></div>
+        
+        <hr>
+        
+        <!-- Área do Círculo -->
+        <div class="form-group">
+            <label for="circleRadius">Raio do Círculo:</label>
+            <input type="number" id="circleRadius" step="0.01">
+        </div>
+        <button class="btn" onclick="calculateCircleArea()">Calcular Área do Círculo</button>
+        <div id="circuloResultado" class="resultado"></div>
+        
+        <hr>
+        
+        <!-- Área do Triângulo -->
+        <div class="form-group">
+            <label for="trianguloBase">Base do Triângulo:</label>
+            <input type="number" id="trianguloBase" step="0.01">
+        </div>
+        <div class="form-group">
+            <label for="trianguloAltura">Altura do Triângulo:</label>
+            <input type="number" id="trianguloAltura" step="0.01">
+        </div>
+        <button class="btn" onclick="calculateTriangleArea()">Calcular Área do Triângulo</button>
+        <div id="trianguloResultado" class="resultado"></div>
+    </div>
+
+    <script>
+        function areaRetangulo() {
+            const base = parseFloat(document.getElementById("retBase").value);
+            const altura = parseFloat(document.getElementById("retAltura").value);
+
+            if (isNaN(base) || isNaN(altura) || base <= 0 || altura <= 0) {
+                document.getElementById("retResultado").textContent = "Por favor, insira valores válidos.";
+            } else {
+                const area = base * altura;
+                document.getElementById("retResultado").textContent = `Área do retângulo: ${area.toFixed(2)} unidades².`;
+            }
+        }
+
+        function calculateCircleArea() {
+            const raio = parseFloat(document.getElementById("circleRadius").value);
+
+            if (isNaN(raio) || raio <= 0) {
+                document.getElementById("circuloResultado").textContent = "Por favor, insira um valor válido.";
+            } else {
+                const area = Math.PI * Math.pow(raio, 2);
+                document.getElementById("circuloResultado").textContent = `Área do círculo: ${area.toFixed(2)} unidades².`;
+            }
+        }
+
+        function calculateTriangleArea() {
+            const base = parseFloat(document.getElementById("trianguloBase").value);
+            const altura = parseFloat(document.getElementById("trianguloAltura").value);
+
+            if (isNaN(base) || isNaN(altura) || base <= 0 || altura <= 0) {
+                document.getElementById("trianguloResultado").textContent = "Por favor, insira valores válidos.";
+            } else {
+                const area = (base * altura) / 2;
+                document.getElementById("trianguloResultado").textContent = `Área do triângulo: ${area.toFixed(2)} unidades².`;
+            }
+        }
+    </script>
+</body>
+</html>
