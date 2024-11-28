@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Determinante 2x2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            width: 50px;
+            padding: 5px;
+            margin: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Calculadora de Determinante 2x2</h2>
+        <div>
+            <input type="number" id="a11" placeholder="a11">
+            <input type="number" id="a12" placeholder="a12">
+        </div>
+        <div>
+            <input type="number" id="a21" placeholder="a21">
+            <input type="number" id="a22" placeholder="a22">
+        </div>
+        <button onclick="calcularDeterminante()">Calcular Determinante</button>
+        <p id="resultado"></p>
+    </div>
+
+    <script>
+        function calcularDeterminante() {
+            
+            const a11 = document.getElementById('a11').value;
+            const a12 = document.getElementById('a12').value;
+            const a21 = document.getElementById('a21').value;
+            const a22 = document.getElementById('a22').value;
+
+            const determinante = (a11 * a22) - (a12 * a21);
+
+            document.getElementById('resultado').innerText = Determinante: ${determinante};
+        }
+    </script>
+</body>
+</html>
